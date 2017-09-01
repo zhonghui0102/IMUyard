@@ -1,0 +1,38 @@
+<ion-view view-title="" >
+	<ion-nav-buttons side="left">
+		<a class="button button-clear" onclick="history.go(-1)">
+      返回
+   </a>
+	</ion-nav-buttons>
+	<ion-content class="padding">
+		<div style="margin-bottom: 30px;" class="list card">
+			<div class="item item-avatar">
+				<img  ng-src={{"http://imucommunity-1252858792.image.myqcloud.com/avatar/"+question.avatar}}  />
+				<p></p><span style="font-size: 18px;">{{question.name}}</span>
+				<span style="font-size: 14px; float: right; font-size: 16px;">{{question.time}}</span></p>
+				<a style="float: right; margin: 10 0;" ng-click="deleteask(question.aid)" ng-if="question.self">删除</a>
+			</div>
+
+			<div class="item item-body">
+				<p style="margin-top: 0; font-size: 16px; text-align: justify;">
+					{{question.detail}}
+				</p>
+			</div>
+		</div>
+		<ion-list class=" item-body">
+			<ion-item style="border: 0px;" ng-repeat="comment in item track by $index">
+				<div style=" border-bottom: 1px solid dimgray;" class="list">
+						<img style="width: 40px; height: 40px; border-radius: 100%;" ng-src={{"http://imucommunity-1252858792.image.myqcloud.com/avatar/"+comment.avatar}} />
+						<span style="font-size:16px; position: relative; left: 20px; top: -20px;" >{{comment.name}}</span>
+						<span style="font-size:12px; float: right;">{{comment.time}}</span>
+						<p style="font-size: 14px; text-align: justify; margin-bottom: 10px; " >{{comment.content}}</p>
+				</div>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+	<div class="bar bar-footer bar-positive">
+		<input style="width: 100%;"     ng-keyup="enterEvent($event)" ng-model="data.inputanswer" placeholder="你想对他/她/它的话说些什么" />
+			<button class="button"  ng-if="login"id="answerquestionbutton" ng-click="answer()">回答问题啊a</button>
+			<button class="button" ng-if="!login" onclick="window.location.href='#/loginfabiao'" >请先登录啊a</button>
+	</div>
+</ion-view>

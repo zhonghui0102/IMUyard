@@ -1,0 +1,32 @@
+<ion-view view-title="搜索" xmlns:http="http://www.w3.org/1999/xhtml" xmlns:color="http://www.w3.org/1999/xhtml">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear" ng-click="goback()">
+            返回
+        </a>
+    </ion-nav-buttons>
+    <ion-content style="margin: 0;" class="padding">
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input  type="search"  ng-keyup="enterEvent($event)"  ng-model="data.keysearch">
+            </label>
+            <button class="button " ng-click="search()">
+                搜索
+            </button>
+
+        </div>
+        <ion-list ng-if="ifzixun==1">
+        <ion-item style="padding: 0; border-bottom:6px solid #e8e8e8;" class="item item-body" ng-repeat="item in askList" href="#/askDetail/{{item.aid}}">
+            <img style="width: 60px; height: 60px; border-radius: 100%;" ng-src={{"http://imucommunity-1252858792.image.myqcloud.com/avatar/"+item.avatar+"/s"}} />
+            <span style="font-size:18px; position: relative; left: 10px; top: -20px;" >{{item.name}}</span>
+            <span style="font-size:18px; position: relative; left: 20px; top: -20px;"ng-if="item.gender==0">未知</span>
+            <span style="font-size:18px; position: relative; left: 20px; top: -20px;" ng-if="item.gender==1">男</span>
+            <span style="font-size:18px; position: relative; left: 20px; top: -20px;" ng-if="item.gender==2">女</span>
+            <span style="float: right;">{{item.time}}</span>
+            <p style="text-align: justify; font-size:16px;height: auto; max-height: 60px; overflow: hidden;text-overflow: ellipsis;">{{item.detail}}</p>
+        </ion-item>
+    </ion-list>
+        <div ng-if="ifzixun==0"> 无结果</div>
+    </ion-content>
+
+</ion-view>

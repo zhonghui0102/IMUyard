@@ -1,0 +1,37 @@
+
+
+<ion-view view-title="个人中心">
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <a class="button button-clear" ng-click="fanhui()">
+            返回
+        </a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-item class="item item-body">
+            <img style="width: 70px; height: 70px; border-radius: 100% ;" ng-src={{"http://imucommunity-1252858792.image.myqcloud.com/avatar/"+item.avatar+"/s"}} />
+            <span style="font-size: 18px; position: relative; top: -40px;  margin: 10px 10px; " >{{item.name}}</span>		
+			<span style="font-size: 18px; position: relative; top: -40px; " ng-if="item.gender==0">未知</span>
+            <span style="font-size: 18px; position: relative; top: -40px; " ng-if="item.gender==1">男</span>
+            <span style="font-size: 18px; position: relative; top: -40px; " ng-if="item.gender==2">女</span>
+        </ion-item>
+         <ion-item style="margin-top: 20px;" >
+            <a style="text-decoration: none;" href="#/changepic"><h2>更换头像</h2>
+               </a>
+        </ion-item>
+        <ion-item  >
+            <a style="text-decoration: none;" href="#/ask-my"><h2>获取自己咨询记录</h2>
+                </a>
+        </ion-item>
+        <ion-item  >
+            <a style="text-decoration: none;" href="#/tucao-my"><h2>获取自己吐槽记录</h2>
+            </a>
+        </ion-item>
+         <ion-item  >
+            <a style="text-decoration: none;" href="#/callOwn"><h2>关于我们</h2>
+            </a>
+        </ion-item>
+        <button class="button button-block button-assertive"  ng-click="quitlogin()">退出登录</button>
+    </ion-content>
+</ion-view>
+

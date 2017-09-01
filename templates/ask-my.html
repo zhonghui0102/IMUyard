@@ -1,0 +1,24 @@
+<ion-view view-title="">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear" ng-if="!login"ng-click="goback()">
+          返回
+        </a>
+        <a class="button button-clear" ng-if="login" ng-click="goback()">
+            返回
+        </a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item style="padding: 0; border-bottom:6px solid #e8e8e8;" class="item item-body" ng-repeat="item in askList" href="#/askDetail/{{item.aid}}">
+                <img style="width: 60px; height: 60px; border-radius: 100%;" ng-src={{"http://imucommunity-1252858792.image.myqcloud.com/avatar/"+item.avatar+"/s"}} />
+                <span style="font-size:18px; position: relative; left: 10px; top: -20px;" >{{item.name}}</span>
+                <span style="float: right;">{{item.time}}</span>
+                <p style="text-align: justify; font-size:16px;height: auto; max-height: 60px; overflow: hidden;text-overflow: ellipsis;">{{item.detail}}</p>
+                <a ng-click="deleteask(item.aid)">删除</a>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
